@@ -26,8 +26,8 @@ var number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // Asking for Upper case value
 function askAboutUppercase(){
   allowUppercase = confirm("Are upper case characters allowed? Press okay to confirm.");
-
-// Repeat for other criteria; for the number of characters, use a prompt statement. Google it. NOTE: prompt statements think any value you provide is a string. You will need to convert it to a number.
+  console.log(allowUppercase);
+}
 
 // Asking for lower case permission.
 function askAboutLowercase(){
@@ -52,18 +52,19 @@ function askAboutCharacterCount(){
   passwordCharacterCount = parseInt(convertString)
 }
 
-
+// Repeat for other criteria; for the number of characters, use a prompt statement. Google it. NOTE: prompt statements think any value you provide is a string. You will need to convert it to a number.
 
 
 // Once all the criteria are determined, this function will generate the password. You can create other functions also if you need them.
 function generatePassword(){
   var finalResult = ""
   // Create a For Loop
-for(var i = 1; i = numberofCharacters; i ++){
+for(var i = 1; i = passwordCharacterCount; i ++){
   //paswword length = number of characters entered in prompt
-  askAboutCharacterCount(numberofCharacters) 
-  // created an empty array namespace to use for the if functions
-  var arrayOfCharacters = []
+  askAboutCharacterCount(passwordCharacterCount) 
+  //created array to hold if variables
+  variablesToUse = []
+
 }
   // HINT: Remember that a for-loop can iterate from a starting number to a ending number, such as the number of characters in a password.
 
@@ -78,34 +79,36 @@ function writePassword() {
 
   // ask the questions first
   askAboutUppercase();
-  if (askAboutUppercase == true){ //if Upper case characters are allowed
-    arrayOfCharacters.concat(uppercaseChars) //add to generate pw function (how to? create array? )
+  if (askAboutUppercase === true){ //if Upper case characters are allowed
+    //merge array into new array variablesToUse
+    variablesToUse.concat(uppercaseChars)
   } //else nothing?
 
   // Ask about the second value
   askAboutLowercase();
-  if (askAboutLowercase == true){
-    arrayOfCharacters.concat(lowercaseChars) // add to generate pw function. 
+  if (askAboutLowercase === true){
+    //merge array into new array variablesToUse
+    variablesToUse.concat(lowercaseChars) // add to generate pw function. 
   } //else nothing? (Need else?)
 
 // Ask about the third value
   askAboutNumbers();
-  if (askAboutNumbers == true){
-    arrayOfCharacters.concat(number) //add to generate pw function
+  if (askAboutNumbers === true){
+    //merge array into new array variablesToUse
+    variablesToUse.concat(number) //add to generate pw function
   }
 
-// And the fourth value
+  // And the fourth value
   askAboutSpecialChar();
-  if (askAboutSpecialChar == true){
-    arrayOfCharacters.concat(specialChars) //add to generate pw function 
+  if (askAboutSpecialChar === true){
+    //merge array into new array variablesToUse
+    variablesToUse.concat(specialChars)
   }
-
 
 // Ask final question. Note this one should be a prompt.
-  askAboutCharacterCount();
-  //function set to convert string to integer. 
-
-
+  askAboutCharacterCount();{
+    //function set to convert string to integer. 
+  }
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
