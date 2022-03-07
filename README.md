@@ -15,4 +15,4 @@ The biggest contribution that I had in this assignment was help from my instruct
 
 My tutor, David Johnson, was also able to assist with some of my bigger questions and with getting the code to run as I wanted it.
 
-![I also borred a snippet of code for random number generating from this website](https://dev.to/code_mystery/random-password-generator-using-javascript-6a)
+![I also borrowed a snippet of code for random number generating from this website](https://dev.to/code_mystery/random-password-generator-using-javascript-6a)
