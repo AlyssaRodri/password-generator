@@ -26,8 +26,8 @@ var number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // Asking for Upper case value
 function askAboutUppercase(){
   allowUppercase = confirm("Are upper case characters allowed? Press okay to confirm.");
-  console.log(allowUppercase);
-}
+
+// Repeat for other criteria; for the number of characters, use a prompt statement. Google it. NOTE: prompt statements think any value you provide is a string. You will need to convert it to a number.
 
 // Asking for lower case permission.
 function askAboutLowercase(){
@@ -52,7 +52,7 @@ function askAboutCharacterCount(){
   passwordCharacterCount = parseInt(convertString)
 }
 
-// Repeat for other criteria; for the number of characters, use a prompt statement. Google it. NOTE: prompt statements think any value you provide is a string. You will need to convert it to a number.
+
 
 
 // Once all the criteria are determined, this function will generate the password. You can create other functions also if you need them.
@@ -62,7 +62,8 @@ function generatePassword(){
 for(var i = 1; i = numberofCharacters; i ++){
   //paswword length = number of characters entered in prompt
   askAboutCharacterCount(numberofCharacters) 
-
+  // created an empty array namespace to use for the if functions
+  var arrayOfCharacters = []
 }
   // HINT: Remember that a for-loop can iterate from a starting number to a ending number, such as the number of characters in a password.
 
@@ -78,25 +79,25 @@ function writePassword() {
   // ask the questions first
   askAboutUppercase();
   if (askAboutUppercase == true){ //if Upper case characters are allowed
-    var uppercaseChars //add to generate pw function (how to? create array? )
+    arrayOfCharacters.concat(uppercaseChars) //add to generate pw function (how to? create array? )
   } //else nothing?
 
   // Ask about the second value
   askAboutLowercase();
   if (askAboutLowercase == true){
-    var lowercaseChars // add to generate pw function. 
+    arrayOfCharacters.concat(lowercaseChars) // add to generate pw function. 
   } //else nothing? (Need else?)
 
 // Ask about the third value
   askAboutNumbers();
   if (askAboutNumbers == true){
-    var number //add to generate pw function
+    arrayOfCharacters.concat(number) //add to generate pw function
   }
 
 // And the fourth value
   askAboutSpecialChar();
   if (askAboutSpecialChar == true){
-    var specialChars //add to generate pw function
+    arrayOfCharacters.concat(specialChars) //add to generate pw function 
   }
 
 
