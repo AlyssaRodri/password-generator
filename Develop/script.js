@@ -26,7 +26,6 @@ var number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // Asking for Upper case value
 function askAboutUppercase(){
   allowUppercase = confirm("Are upper case characters allowed? Press okay to confirm.");
-  console.log(allowUppercase);
 }
 
 // Asking for lower case permission.
@@ -46,11 +45,14 @@ function askAboutSpecialChar(){
 
 // Asking for character count.
 function askAboutCharacterCount(){
-  // prompt used for multiple characters.
-  let convertString = prompt("How many characters are allowed? Press okay to confirm. ")
-  // converted string to numbers.
-  passwordCharacterCount = parseInt(convertString)
+  //created an array to hold the values
+  passwordLength = []
+  //prompt used so the user can input the values.
+  passwordLength = prompt("How many characters are allowed?")
+  console.log(passwordLength)
 }
+
+
 
 // Repeat for other criteria; for the number of characters, use a prompt statement. Google it. NOTE: prompt statements think any value you provide is a string. You will need to convert it to a number.
 
@@ -58,62 +60,66 @@ function askAboutCharacterCount(){
 // Once all the criteria are determined, this function will generate the password. You can create other functions also if you need them.
 function generatePassword(){
   var finalResult = ""
-  // Create a For Loop
-for(var i = 1; i = passwordCharacterCount; i ++){
-  //paswword length = number of characters entered in prompt
-  askAboutCharacterCount(passwordCharacterCount) 
-  //created array to hold if variables
+
+  //created array to hold the variables that we will be using
   variablesToUse = []
+  //added if statements to this function so that variable can be read by machine.
+    if (askAboutUppercase === true){ //if Upper case characters are allowed
+      //merge array into new array variablesToUse
+      charactersToUse.concat(uppercaseChars)
+   } //else nothing?
 
+    if (askAboutLowercase === true){
+      //merge array into new array variablesToUse
+      variablesToUse.concat(lowercaseChars) // add to generate pw function. 
+   } //else nothing? (Need else?)
+
+    if (askAboutNumbers === true){
+      //merge array into new array variablesToUse
+      variablesToUse.concat(number) //add to generate pw function
+   }
+    if (askAboutSpecialChar === true){
+      //merge array into new array variablesToUse
+      variablesToUse.concat(specialChars)
+    }
+
+  // Code snippet from https://dev.to/code_mystery/random-password-generator-using-javascript-6a
+  for(var i = 1; i >= passwordLength; i ++){
+    var randomNumber = Math.floor(Math.random() * variablesToUse.length);
+    password += variablesToUse.substring(randomNumber, randomNumber +1); 
+  return finalResult = '';
+ 
 }
-  // HINT: Remember that a for-loop can iterate from a starting number to a ending number, such as the number of characters in a password.
-
-  // HINT: You may want to look into merging arrays together
-
-
-  return finalResult;
 }
-
+ console.log(finalResult)
 // Write password to the #password input
 function writePassword() {
 
+
   // ask the questions first
   askAboutUppercase();
-  if (askAboutUppercase === true){ //if Upper case characters are allowed
-    //merge array into new array variablesToUse
-    variablesToUse.concat(uppercaseChars)
-  } //else nothing?
+  
 
   // Ask about the second value
   askAboutLowercase();
-  if (askAboutLowercase === true){
-    //merge array into new array variablesToUse
-    variablesToUse.concat(lowercaseChars) // add to generate pw function. 
-  } //else nothing? (Need else?)
+
 
 // Ask about the third value
   askAboutNumbers();
-  if (askAboutNumbers === true){
-    //merge array into new array variablesToUse
-    variablesToUse.concat(number) //add to generate pw function
-  }
+
 
   // And the fourth value
   askAboutSpecialChar();
-  if (askAboutSpecialChar === true){
-    //merge array into new array variablesToUse
-    variablesToUse.concat(specialChars)
-  }
-
 // Ask final question. Note this one should be a prompt.
+
   askAboutCharacterCount();{
     //function set to convert string to integer. 
-  }
+
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-}
+}}
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword) 
