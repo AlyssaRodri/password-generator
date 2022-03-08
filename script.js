@@ -55,7 +55,9 @@ function askAboutSpecialChar() {
 // Asking for character count.
 function askAboutCharacterCount() {
   //prompt used so the user can input the values.
-  passwordCharacterCount = prompt("How many characters are allowed?")
+  var toConvert = prompt("How many characters are allowed?")
+  parseInt( toConvert) = passwordCharacterCount
+  
 }
 
 
@@ -108,12 +110,14 @@ function generatePassword() {
   }
 
   // Code snippet from https://dev.to/code_mystery/random-password-generator-using-javascript-6a
-  for (var i = 0; i <= passwordCharacterCount; i++) {
-    function finalResult(min, max) {
-      Math.floor(Math.random() * (max - min + 1) + min);
+    for (var i = 0; i < passwordCharacterCount; i++) {
+      finalResult = Math.floor(Math.random() * variablesToUse.length);
+      criteriaVariables.concat(finalResult)
+
+      console.log(finalResult)
     }
   }
-}
+
 
   // Write password to the #password input
   function writePassword() {
