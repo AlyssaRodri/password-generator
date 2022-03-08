@@ -7,7 +7,12 @@ In this project, I created a working password generator using JavaScript. When y
 
 ## Photo of My Final Webpage
 
+
+
 ## Link to My Final Webpage
+ 
+ ![Here is the link to my final website.](https://alyssarodri.github.io/password-generator/)
+
 
 ## Contributions
 
