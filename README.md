@@ -7,6 +7,7 @@ In this project, I created a working password generator using JavaScript. When y
 
 ## Photo of My Final Webpage
 
+![This is the final screenshot of my webpage](./images/final-webpage-passgen.jpg)
 
 
 ## Link to My Final Webpage
