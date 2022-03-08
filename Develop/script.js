@@ -11,8 +11,8 @@ var passwordCharacterCount;
 function getRandomChar(array) {
   for (var i = 0; i < 1; i++) {
     var randomNumber = Math.floor(Math.random() * array.length);
-    variablesToUse.push(array[randomNumber])
-    console.log(variablesToUse)
+    criteriaVariables.push(array[randomNumber])
+    console.log(criteriaVariables)
 
   }
 }
@@ -54,11 +54,8 @@ function getRandomChar(array) {
 
   // Asking for character count.
   function askAboutCharacterCount() {
-    //created an array to hold the values
-    passwordLength = []
     //prompt used so the user can input the values.
-    passwordLength = prompt("How many characters are allowed?")
-    console.log(passwordLength)
+    passwordCharacterCount = prompt("How many characters are allowed?")
   }
 
 
@@ -71,37 +68,54 @@ function getRandomChar(array) {
     var finalResult = ""
     //created array to hold the variables that we will be using
     variablesToUse = []
+    //created an array for the characters pulled first to match the criteria
+    criteriaVariables = []
     //added if statements to this function so that variable can be read by machine.
     if (allowUppercase === true) { //if Upper case characters are allowed
-      //merge array into new array variablesToUse
+      //split the characters so they can be used
       var chosenUppercase = uppercaseChars.split("")
+      //generate a random character and add to variables to use array.
       getRandomChar(chosenUppercase);
+      //add array to variablesToUse array
+      chosenUppercase.push(variablesToUse)
     }
 
-    if (askAboutLowercase === true) {
-      //merge array into new array variablesToUse
+    if (allowLowerCase === true) {
+      //split the characters so that they can be used
       var chosenLowercase = lowercaseChars.split("")
-      getRandomChar(chosenLowercase)
+      //generate a random character and add to variableToUse array.
+      getRandomChar(chosenLowercase);
+      //add split array to variables to use array
+      chosenLowercase.push(variablesToUse)
     } 
 
-    if (askAboutNumbers === true) {
-      //merge array into new array variablesToUse
+    if (allowNumbers === true) {
+      //split the chacters
       var chosenNumbers = number.split("")
+      //generate random and add to array
       getRandomChar(chosenNumbers)
+      //add split array to variablesToUse
+      chosenNumbers.push(variablesToUse)
     }
-    if (askAboutSpecialChar === true) {
-      //merge array into new array variablesToUse
+
+    if (allowSpecials === true) {
+      //split the characters
       var chosenSpecialChar = specialChars.split("")
+      //generate random and add to array.
+      getRandomChar(chosenSpecialChar)
+      //add split array to variablesToUse
+      chosenSpecialChar.push(variablesToUse)
     }
 
     // Code snippet from https://dev.to/code_mystery/random-password-generator-using-javascript-6a
-    for (var i = 1; i <= passwordLength; i++) {
-      var randomNumber = Math.floor(Math.random() * variablesToUse.length);
+    for (var i = 0; i <= passwordCharacterCount; i++) {
+      finalResult = Math.floor(Math.random() * variablesToUse.random());
       // password += variablesToUse.substring(randomNumber, randomNumber +1); 
       console.log(finalResult)
       return finalResult;
     }
   }
+  
   // Write password to the #password input
   function writePassword() {
 
@@ -109,20 +123,19 @@ function getRandomChar(array) {
     // ask the questions first
     askAboutUppercase();
 
-
     // Ask about the second value
     askAboutLowercase();
-
-
+    
     // Ask about the third value
     askAboutNumbers();
+    
     // And the fourth value
     askAboutSpecialChar();
+    
     // Ask final question. Note this one should be a prompt.
-
     askAboutCharacterCount();
+    
     //function set to convert string to integer. 
-
 
     generatePassword();
     var passwordText = document.querySelector("#password");
@@ -130,4 +143,4 @@ function getRandomChar(array) {
   }
 
   // Add event listener to generate button
-  generateBtn.addEventListener("click", writePassword)
+  generateBtn.addEventListener("click", writePassword())
